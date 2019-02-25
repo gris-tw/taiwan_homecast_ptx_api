@@ -1,3 +1,5 @@
+package com.gris.tw;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,14 +34,14 @@ import org.apache.http.impl.client.HttpClients;
  *
  * @author hpcslag
  */
-public class HttpsClient {
+public class HttpsGetClient {
     
     public String target_url = "";
     
     private String responseData;
     private HttpGet request;
     
-    public HttpsClient(String url){
+    public HttpsGetClient(String url){
         this.target_url = url;
         request = new HttpGet(target_url);
     }

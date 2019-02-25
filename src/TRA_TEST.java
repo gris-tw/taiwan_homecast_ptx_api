@@ -1,4 +1,6 @@
 
+import com.gris.tw.ptx.train.NationalStationInfo;
+import com.gris.tw.ptx.train.TrainArrivalAssistant;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,7 +43,7 @@ import org.json.JSONObject;
  *
  * @author hpcslag
  */
-public class Main {
+public class TRA_TEST {
 
     /**
      * @param args the command line arguments

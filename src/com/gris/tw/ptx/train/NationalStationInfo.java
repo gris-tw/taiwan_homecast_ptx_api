@@ -1,4 +1,7 @@
+package com.gris.tw.ptx.train;
 
+
+import com.gris.tw.Homecast;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -22,7 +25,7 @@ import org.json.JSONObject;
  *
  * @author hpcslag
  */
-public class NationalStationInfo {
+public class NationalStationInfo implements Homecast{
 
     private JSONArray Cities;
     private JSONArray Stations;

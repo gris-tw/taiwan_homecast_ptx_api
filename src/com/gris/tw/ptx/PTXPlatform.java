@@ -1,4 +1,8 @@
+package com.gris.tw.ptx;
 
+
+import com.gris.tw.HttpsGetClient;
+import com.gris.tw.HttpsGetClient;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -26,7 +30,7 @@ import java.util.zip.GZIPInputStream;
  *
  * @author hpcslag
  */
-public class PTXPlatform extends HttpsClient {
+public class PTXPlatform extends HttpsGetClient {
     
     private String APIUrl = ""; // "https://ptx.transportdata.tw/MOTC/APIs/v2/Rail/TRA/Station?$top=10&$format=JSON";
     //申請的APPID
@@ -35,15 +39,12 @@ public class PTXPlatform extends HttpsClient {
     //申請的APPKey
     private String APPKey = "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF";
     
-    public PTXPlatform(String url, String APPID, String APPKey){
+    public PTXPlatform(String url){
         super(url);
         this.APIUrl = url;
-        if(!APPID.isEmpty() && !APPKey.isEmpty()){
-            this.APPID = APPID;
-            this.APPKey = APPKey;
-            return;
+        if(APPID.equals("FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF") || APPKey.equals("FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF")){
+            System.out.println("You're using Guest Mode to Fetch PTX API.");
         }
-        System.out.println("You're using Guest Mode to Fetch PTX API.");
     }
     
     private String xdate;
@@ -67,7 +68,7 @@ public class PTXPlatform extends HttpsClient {
         return sAuth;
     }
 
-    protected String getData() throws NoSuchAlgorithmException, KeyManagementException, IOException {
+    public String getData() throws NoSuchAlgorithmException, KeyManagementException, IOException {
         SetHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) ...");
         SetHeader("Authorization", sAuthGenerator());
         SetHeader("x-date",xdate);

@@ -1,4 +1,7 @@
+package com.gris.tw.ptx.train;
 
+
+import com.gris.tw.ptx.PTXPlatform;
 import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
@@ -20,14 +23,11 @@ public class TrainArrivalAssistant {
     
     private PTXPlatform ptxp;
     
-    public String APPID = "";
-    public String APPKey = "";
-    
     public JSONArray timeData = null;
     
     public TrainArrivalAssistant(String origin,String dest, String date){
         String url = "https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/DailyTimetable/OD/"+ origin +"/to/"+ dest +"/"+ date +"?$orderby=OriginStopTime%2FArrivalTime&$format=JSON";
-        ptxp = new PTXPlatform(url, APPID, APPKey);
+        ptxp = new PTXPlatform(url);
         System.out.println("Warning: You Have to use refreshTimeData() to get train info.");
     }
     
