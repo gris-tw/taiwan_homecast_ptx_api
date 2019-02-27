@@ -89,4 +89,5 @@ public class BikeInfo implements Homecast{
         }
         return stations;
     }
+    
 }

@@ -63,7 +63,6 @@ public class PTXPlatform extends HttpsGetClient {
             e1.printStackTrace();
         }
 
-        System.out.println("Signature :" + Signature);
         String sAuth = "hmac username=\"" + APPID + "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"" + Signature + "\"";
         return sAuth;
     }
