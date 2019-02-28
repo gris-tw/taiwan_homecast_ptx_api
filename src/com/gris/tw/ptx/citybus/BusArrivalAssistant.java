@@ -57,11 +57,13 @@ public class BusArrivalAssistant extends BusStopInfo implements Homecast{
             urlString = "https://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/" + route.getCityName() + "?$filter=" + URLEncoder.encode("StopUID eq '" + targetStopUID + "' and Direction eq '"+ targetDirection +"' ", "UTF-8") +  "&$format=JSON";
         }
         urlString = urlString.replaceAll("\\+", "%20");
-        System.out.println(urlString);
         PTXPlatform ptxp = new PTXPlatform(urlString);
         
-        
-        this.stopData = new JSONArray(ptxp.getData()).getJSONObject(0);
+        try{
+            this.stopData = new JSONArray(ptxp.getData()).getJSONObject(0);
+        }catch(Exception e){
+            System.out.println("Maybe Direction are not  using in this route, please set direction to -1.");
+        }
         return stopFilter(stopData);
     }
     

@@ -32,7 +32,7 @@ public class BUS_TEST {
         System.out.println("-----------------------");
         BusStopInfo bsi = new BusStopInfo(bri);
         System.out.println(bsi.getStopInformation());
-        bsi.setStop("KHH12243",1);
+        bsi.setStop("KHH13329",0);
                 
         System.out.println("-----------------------");
         BusArrivalAssistant baa = new BusArrivalAssistant(bsi);
