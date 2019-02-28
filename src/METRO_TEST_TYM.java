@@ -1,9 +1,11 @@
 
 import com.gris.tw.ptx.metro.CityMetroInfo;
-import com.gris.tw.ptx.metro.MetroArrivalAssistant;
+import com.gris.tw.ptx.metro.KHMetroArrivalAssistant;
 import com.gris.tw.ptx.metro.MetroLineInfo;
 import com.gris.tw.ptx.metro.MetroStationDestSelector;
 import com.gris.tw.ptx.metro.MetroStationInfo;
+import com.gris.tw.ptx.metro.TYAirportMetroArrivalAssistant;
+import com.gris.tw.ptx.metro.TYAirportMetroStationDestSelector;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,7 +17,7 @@ import com.gris.tw.ptx.metro.MetroStationInfo;
  *
  * @author Mac
  */
-public class METRO_TEST_TPE {
+public class METRO_TEST_TYM {
     
     public static void main(String[] args) throws Exception{
         String languageCode = "Zh_tw";
@@ -25,28 +27,29 @@ public class METRO_TEST_TPE {
         
         System.out.println("---------------------");
         
-        int city_code = 2;
+        int city_code = 3;
         
         MetroLineInfo mli = new MetroLineInfo(city_code);
         System.out.println(mli.getLineData(languageCode));
         
         System.out.println("---------------------");
         
-        String LineID = "BL";
+        String LineID = "A";
         MetroStationInfo msi = new MetroStationInfo(city_code, LineID);
         System.out.println(msi.getStationInfo(languageCode));
         
         System.out.println("---------------------");
         
-        String StationID = "BL12";
-        MetroStationDestSelector msds = new MetroStationDestSelector(city_code, LineID, StationID);
-        System.out.println(msds.getStationDest(languageCode));
-        String Dest = "OT1";
-        msds.setDestination(Dest);
+        String StationID = "A2";
+        TYAirportMetroStationDestSelector tmsds = new TYAirportMetroStationDestSelector(city_code, LineID, StationID);
+        System.out.println(tmsds.getStationDest(languageCode));
+        String Dest = "A1";
+        tmsds.setTrainType(-1);
+        tmsds.setDestination(Dest);
         
         System.out.println("---------------------");
         
-        MetroArrivalAssistant maa = new MetroArrivalAssistant(msds); 
+        TYAirportMetroArrivalAssistant maa = new TYAirportMetroArrivalAssistant(tmsds); 
         System.out.println(maa.getEstimateTime());
         
     }

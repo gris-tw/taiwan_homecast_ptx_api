@@ -17,13 +17,13 @@ import org.json.JSONObject;
  *
  * @author Mac
  */
-public class MetroArrivalAssistant extends DataHandler{
+public class KHMetroArrivalAssistant extends DataHandler{
     
     private JSONArray stations;
     private int estimateTime;
     
     //please considering the terminal station has two way to same destination.
-    public MetroArrivalAssistant(MetroStationDestSelector msds) throws UnsupportedEncodingException, NoSuchAlgorithmException, KeyManagementException, IOException{
+    public KHMetroArrivalAssistant(MetroStationDestSelector msds) throws UnsupportedEncodingException, NoSuchAlgorithmException, KeyManagementException, IOException{
         super();
         super.setPTXPURL(("https://ptx.transportdata.tw/MOTC/v2/Rail/Metro/LiveBoard/" + super.getCityCodeTranslation().get(msds.city_code) + "?$filter=StationID eq " + URLEncoder.encode("'" + msds.stationID + "'", "UTF-8") + " and DestinationStaionID eq "+ URLEncoder.encode("'" + msds.destID + "'","UTF-8") +" and LineID eq "+ URLEncoder.encode("'" + msds.mLineID + "'", "UTF-8") +"&$top=30&$format=JSON").replaceAll(" ", "%20"));
         super.fetchPTXPData();

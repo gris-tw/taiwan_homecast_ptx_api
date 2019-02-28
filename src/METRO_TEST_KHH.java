@@ -1,6 +1,6 @@
 
 import com.gris.tw.ptx.metro.CityMetroInfo;
-import com.gris.tw.ptx.metro.MetroArrivalAssistant;
+import com.gris.tw.ptx.metro.KHMetroArrivalAssistant;
 import com.gris.tw.ptx.metro.MetroLineInfo;
 import com.gris.tw.ptx.metro.MetroStationDestSelector;
 import com.gris.tw.ptx.metro.MetroStationInfo;
@@ -46,7 +46,7 @@ public class METRO_TEST_KHH {
         
         System.out.println("---------------------");
         
-        MetroArrivalAssistant maa = new MetroArrivalAssistant(msds); 
+        KHMetroArrivalAssistant maa = new KHMetroArrivalAssistant(msds); 
         System.out.println(maa.getEstimateTime());
         
     }
