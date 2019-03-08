@@ -62,7 +62,7 @@ public class HttpsPostProxyClient{
         proxy = new HttpPost(ProxyURL);
     }
     
-    protected String fetchData() throws Exception{
+    protected String fetchData(){
         
 
         // Request parameters and other properties.
@@ -73,7 +73,7 @@ public class HttpsPostProxyClient{
             proxy.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
         }catch(Exception e){
             System.out.println("URL Encoding is not support.");
-            throw new Exception("URL Encoding is not spport.");
+            return "{ URL Encoding is not support. }";
         }
 
         //Execute and get the response.
@@ -86,10 +86,9 @@ public class HttpsPostProxyClient{
             }
         }catch(Exception e){
             System.out.println("Response is not working.");
-            throw new Exception("Response is not working.");
+            return "{ Response is not working. }";
         }
-        
-        throw new Exception("Fetch data not working.");
+        return "{ Response is not working. }";
     }
     
     private String inputStreamReader(InputStream content) throws IOException{

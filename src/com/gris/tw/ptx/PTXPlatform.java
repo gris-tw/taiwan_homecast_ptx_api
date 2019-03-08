@@ -36,7 +36,7 @@ public class PTXPlatform extends HttpsPostProxyClient {
         super(url);
     }
 
-    public String getData() throws Exception {
+    public String getData() {
         return super.fetchData();
     }
 }
